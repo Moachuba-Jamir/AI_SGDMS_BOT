@@ -216,6 +216,7 @@ p {
 
 .chat-input:focus {
   outline: none;
+  margin-bottom: 350px !important;
 }
 
 .send-button {

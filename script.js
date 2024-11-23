@@ -76,26 +76,29 @@ textarea.addEventListener("keydown", function (e) {
     textarea.style.marginBottom = "0";
     welcome.style.display = "none"
     var userPrompt = textarea.value;
-    // first create userMsg block dnamically and add to the chat body
-    createUserMsg(userPrompt);
 
-    // fetch call here
-    fetch("https://d1c2tzjxcm976d.cloudfront.net/prompt", {
-      method: "POST", // Correctly specify the HTTP method
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt: userPrompt }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.data);
-        // here call the create botResponse fucntion
-        createBotResponse(data.data);
+    if (userPrompt) {
+      // first create userMsg block dnamically and add to the chat body
+      createUserMsg(userPrompt);
+
+      // fetch call here
+      fetch("https://d1c2tzjxcm976d.cloudfront.net/prompt", {
+        method: "POST", // Correctly specify the HTTP method
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: userPrompt }),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data.data);
+          // here call the create botResponse fucntion
+          createBotResponse(data.data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    } 
   }
 });
 
