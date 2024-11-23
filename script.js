@@ -17,15 +17,9 @@ textarea.addEventListener("input", function () {
   
 });
 
-// Adjust chat body position when the keyboard appears
-textarea.addEventListener("focus", () => {
 
-});
 
-textarea.addEventListener("blur", () => {
-  // Reset chat body position when the keyboard is hidden
-  chatBody.style.paddingBottom = "0";
-});
+
 
 // create the user msg
 function createUserMsg(userPrompt) {
@@ -78,6 +72,8 @@ function createBotResponse(response) {
 textarea.addEventListener("keydown", function (e) {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
+    textarea.blur();
+    textarea.style.marginBottom = "0";
     welcome.style.display = "none"
     var userPrompt = textarea.value;
     // first create userMsg block dnamically and add to the chat body
