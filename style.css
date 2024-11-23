@@ -31,7 +31,7 @@ p {
 }
 
 .chat-container {
-  display: flex;
+  flex: 0 0 auto; /* Fixed height for the input container */
   flex-direction: column;
   height: 100vh;
   max-width: 800px;
@@ -182,8 +182,8 @@ p {
 }
 
 .input-container {
-  position: fixed;
-  bottom: 0;
+   position: fixed; 
+  bottom: 0; 
   width: 100%;
   max-width: 800px;
   padding: 12px 20px;
@@ -192,13 +192,14 @@ p {
 .input-box {
   position: relative;
   max-width: 800px;
-  margin: 0 auto;
+  /* margin-bottom: 4% !important; */
+
 }
 
 .chat-input {
   width: 100%;
   min-height: 52px;
-  max-height: 200px;
+  max-height: 100px;
   padding: 14px 45px 14px 16px;
   font-size: 14px;
   line-height: 1.5;
@@ -215,16 +216,9 @@ p {
   -o-border-radius: 20px;
 }
 
-textarea {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  bottom: env(safe-area-inset-bottom);
-  width: 100%;
-  z-index: 1000;
-}
 .chat-input:focus {
   outline: none;
+
   /* border-color: #017c5e; */
 }
 

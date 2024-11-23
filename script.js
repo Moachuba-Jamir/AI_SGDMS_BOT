@@ -4,23 +4,11 @@ const chatBody = document.querySelector(".chat-body");
 // const analyzing = document.querySelector(".analyzing");
 const welcome = document.querySelector('.welcome');
 
-const initialHeight = window.innerHeight;
 
-window.addEventListener("resize", () => {
-  const currentHeight = window.innerHeight;
-
-  // If the viewport height is reduced, assume keyboard is open
-  if (currentHeight < initialHeight) {
-    textarea.style.bottom = `${initialHeight - currentHeight}px`;
-  } else {
-    // Reset when the keyboard is closed
-    textarea.style.bottom = "0";
-  }
-});
 
 textarea.addEventListener("input", function () {
-  this.style.height = "auto";
-  const newHeight = Math.min(this.scrollHeight, 200);
+  // this.style.height = "auto";
+  const newHeight = Math.min(this.scrollHeight, 400);
   this.style.height = newHeight + "px";
 });
 
