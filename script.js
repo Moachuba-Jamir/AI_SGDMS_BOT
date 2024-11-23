@@ -6,10 +6,27 @@ const welcome = document.querySelector('.welcome');
 
 
 
+// Handle input in the textarea
 textarea.addEventListener("input", function () {
-  // this.style.height = "auto";
+  this.style.height = "auto";
   const newHeight = Math.min(this.scrollHeight, 400);
   this.style.height = newHeight + "px";
+});
+
+// Adjust chat body position when the keyboard appears
+textarea.addEventListener("focus", () => {
+  // Detect keyboard height by comparing viewport sizes
+  const keyboardHeight = window.innerHeight - document.documentElement.clientHeight;
+
+  if (keyboardHeight > 0) {
+    // Push the chat body above the keyboard
+    chatBody.style.paddingBottom = `${keyboardHeight + inputContainer.offsetHeight}px`;
+  }
+});
+
+textarea.addEventListener("blur", () => {
+  // Reset chat body position when the keyboard is hidden
+  chatBody.style.paddingBottom = "0";
 });
 
 // create the user msg
