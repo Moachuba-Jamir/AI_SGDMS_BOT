@@ -9,7 +9,11 @@ const welcome = document.querySelector('.welcome');
 // Handle input in the textarea
 textarea.addEventListener("input", function () {
   const newHeight = Math.min(this.scrollHeight, 1000);
-  this.style.marginBottom = newHeight + 250 +  "px";
+  if (textarea.value != "") {
+    this.style.marginBottom = newHeight + 250 + "px";
+  } else {
+    this.style.marginBottom = "0";
+  }
   
 });
 
