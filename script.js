@@ -67,7 +67,7 @@ textarea.addEventListener("keydown", function (e) {
     createUserMsg(userPrompt);
 
     // fetch call here
-    fetch("http://localhost:8080/prompt", {
+    fetch("https://ai-backend-sgdms-bot-1.onrender.com/prompt", {
       method: "POST", // Correctly specify the HTTP method
       headers: {
         "Content-Type": "application/json",
