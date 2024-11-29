@@ -65,11 +65,11 @@ p {
   width: 120px;
   height: 40px;
   font-family: inter;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
   margin-top: 2%;
   animation: popAnimation 0.8s ease-in-out;
   -webkit-animation: popAnimation 0.8s ease-in-out;
