@@ -42,7 +42,7 @@ p {
 
 .chat-header {
   height: 80px;
-  background-color: #141414;
+  background-color: #0c0c0c;
   /* border-bottom: 1px solid #565869; */
   display: flex;
   align-items: center;
@@ -61,10 +61,10 @@ p {
   margin-left: -20% !important;
 }
 .btn {
-  margin-right: 5%;
+  margin-right: 6%;
   font-size: 0.9;
-  width: 100px;
-  height: 40px;
+  width: 90px;
+  height: 35px;
   font-family: inter;
   border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -73,11 +73,29 @@ p {
   -o-border-radius: 30px;
   margin-top: 2%;
   animation: popAnimation 0.8s ease-in-out;
-  -webkit-animation: popAnimation 0.8s ease-in-out;
+  -webkit-animation: float 10s ease-in-out infinite;
   border: none;
   box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px, rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
-
+  font-weight: 500;
+  animation: float 10s ease-in-out infinite;
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0); /* Start at the original position */
+  }
+  50% {
+    transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+}
+  100% {
+    transform: translateY(0); /* Return to the original position */
+  }
+}
+
 
 .burger {
   display: flex;
@@ -117,7 +135,7 @@ p {
   height: calc(
     100vh - 150px
   ); /* Subtracting header and input container heights */
-  background-color: #141414 !important;
+  background-color: #0c0c0c !important;
 }
 
 .message {
@@ -181,7 +199,7 @@ p {
   line-height: 1.8;
 }
 
-.logo {
+.logo, .welcomeLogo{
   height: 40px;
   width: 40px;
   border: 1px solid rgba(128, 128, 128, 0.724);
@@ -224,8 +242,8 @@ p {
   font-size: 14px;
   line-height: 1.5;
   color: #fff;
-  background-color: #0a0a0adf;
-  border: 1px solid #2c2d31;
+  background-color: #181717e7;
+  border: none;
   border-radius: 20px;
   resize: none;
   overflow-y: auto;
@@ -467,6 +485,6 @@ p {
   }
 }
 
-.logo-streaming {
+.logo-streaming, .welcomeLogo {
   animation: glow 2s infinite;
 }

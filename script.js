@@ -114,7 +114,7 @@ function formatText(text) {
 // welcome typing animation
 function createWelcomeMessage() {
   const welcomeText = "Hello, what can I help you with?";
-  welcomeDiv.innerHTML = ""; // Clear existing text
+  welcomeDiv.innerHTML += ""; // Clear existing text
 
   let index = 0;
   const typingInterval = setInterval(() => {
