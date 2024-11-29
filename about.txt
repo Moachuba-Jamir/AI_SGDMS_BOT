@@ -1,0 +1,35 @@
+SGDMS project by Zeliang codetech pvt ltd. 
+
+Things to know 
+SGDMS is currenly in version 1.0 
+Apart form the things mentioned here I don't want to disclose any other sensitive information
+
+
+SGDMS short for Smart Garbage Disposal Management System is a smart garbage system software. It is developed by zeliang codetech pvt ltd. Here the main goal of us is to create smarter waste management solution. 
+
+What we do is install sensors on bins to measure bin levels. Now this is done using ultrasonic sensors. now the sensor reading is transferred over to a backend api that relates this information to an admin dashboard and a drivers app. The admin dashboard is what we provide to subscribed entities where they can manage their drivers. Here in the dashboard we display the number of dirvers they have withing thier control and the bins with their location they around the geographical jurisdiction. The dashboard has ability to send whats app notifications to drivers when the bin is full. It can also track the bin fill levels in real time and it is shown on the dashboard for each bin (a progress bar). The dashboard also have maps of each bin location. Now the dashboard has driver analyitcs (like number of bins cleared per month, number of bins cleared per location , over all bin cleareance). we plan to use this to make prediction models in the future. The drivers app on the other hand will be given to drivers (it is not on playstore) they log in with thier credentials provided by the admins. Here, each driver is only assigned to one bin manually. Now the app will display the current bin fill level of the drivers assigned when it's full he will recieve a notification from the admin or he can log in to the app and view it. The app has a collect button where onclick it takes them to google map location of their assigned bin. then once they clear the bin a disposed button is activated wherein when they press it it updates the analytics. the drivers app has two analytics section. The Total bins cleared(monthly) binclearance per location of all the other bins. The last section is the support section. where they have a ai powered chat bot that will fix any problems in case of any. then a speak with us button to call the support team directly. then lastly an email section. 
+
+Now that the drivers app and dashboard has been discussed. let's move on to the hardware and software aspects. 
+
+for the hardware aspect 
+     we are using microcontrollers like esp32-wroom32 attached with waterproof ultrasonic sensors ( JSN -04T) which is powered by a solar panel. We will use a 5v converter with usb ports where we will power a dongle that servers as a model to connect the esp32 to the internet. the solar panel provides 12 v power which is converted to 5v by the converter to power the dongle as well as the microcontroler a relay is attached to the a large led blinker which will blink when the bin is full as the realy is triggered when the bin is full supplying direct volatage from the power source (without the converter involved). The sensor is ideally attached around the 200cm / 2m mark from the lid. We do this because the ultrasonic sensor being used has a spread of typically 15 - 20 degree of wave propagation this stops the sensor overflow (this is under the presumption that the x axis of the bin is 1M ). also the sensor might be damaged if it's too close to the lid. for bigger bins it will the measurements will be recalculated. Apart from thsi we are unable to disclose any codebase or specific implementation details for the software facet. 
+
+
+for the software aspect 
+     The software is handled through an https server. The bin readings are posted at certain intervals to the backend server.which the server relays back to the dashboard and the drivers app. The backend is a node js express server. cloud hosting is handled in AWS and netlify. We are also using whats app APIs to send message to drivers, SMS feature will be integrated soon in future updates..  Now the frontend uses vanialla JS to handle api requests and responses with various libraries like chart js to construct charts for analytics and bootstraps for responsive designs AWS services used are elastic bean stlak and cloud front. Now the backend serves as the host for three clients. One is the microcontroller where we get the raw readigns from. Next is the dashboard that fetches these readings and also the the drivers app.for communiation system we have used wifi and https also the microcontroler can be used from 2g to 4g while the drivers app and the dashboard required at least 4g connection to work.  We have used non relational databases like Mongodb for such operations. Apart from thsi we are unable to disclose any codebase or specific implementation details for the software facet. 
+
+
+Hardware requirements for SGDMS software 
+    4gb ram 
+    intel core i3 
+    5 gb of available space (This is not to say it needs 5gb to run sgdms but just sying it needs some free space as all programs do to run efficiently)
+
+Software requirements for SGDMS software 
+    windows 8 
+    Modern broswer 
+    Internet connection (4G and above)
+
+to implement this we will train the admin as well as the drivers on how to use the software. This in the future can either be online or through video tutorials. 
+
+--------------------------------------
+
