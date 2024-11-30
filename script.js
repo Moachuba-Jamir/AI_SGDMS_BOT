@@ -35,19 +35,34 @@ textarea.addEventListener("input", function () {
  
 });
 
+   let initialHeight = window.innerHeight;
 
-textarea.addEventListener('focus', () => {
-   windowHeight = window.innerHeight;
-   console.log(windowHeight);
-})
+   document.querySelector("textarea").addEventListener("focus", () => {
+     // Trigger on focus
+     setTimeout(() => {
+       const keyboardHeight = initialHeight - window.innerHeight;
+       console.log(`Keyboard height: ${keyboardHeight}px`);
+       kbHeight.innerHTML = keyboardHeight;
+      
+     }, 500); // Delay to allow keyboard to fully appear
+   });
 
+   document.querySelector("textarea").addEventListener("blur", () => {
+     // Reset on blur
+     console.log("Keyboard closed or textarea blurred");
+   });
 
-visualViewport.addEventListener("resize", (e) => {
-  var newViewPortheight = e.currentTarget.height;
-  console.log(`${windowHeight - newViewPortheight} new height`);
-  keyboardHeight = windowHeight - newViewPortheight; 
-  kbHeight.innerHTML = `${keyboardHeight}px`
-});
+   let initialViewportHeight = window.innerHeight;
+
+   window.addEventListener("resize", () => {
+     const currentViewportHeight = window.innerHeight;
+
+     if (currentViewportHeight < initialViewportHeight) {
+       console.log("Virtual keyboard is visible");
+     } else {
+       console.log("Virtual keyboard is hidden");
+     }
+   });
 
 // create the user msg
 function createUserMsg(userPrompt) {
