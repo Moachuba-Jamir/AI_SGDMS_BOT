@@ -30,21 +30,16 @@ p {
   font-weight: 400;
 }
 
-.input-container {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   max-width: 800px;
-  padding: 10px;
-  background-color: #0c0c0c;
-  transition: bottom 0.3s ease;
+  margin: 0 auto;
+  position: relative;
+  background-color: #030c6d !important;
 }
 
-
-
-.chat-input:focus {
-  outline: none;
-}
 .chat-header {
   height: 80px;
   background-color: #0c0c0c;
@@ -58,6 +53,9 @@ p {
   max-width: 800px;
   z-index: 10;
   font-family: inter;
+  position: sticky;
+  top: 0;
+  right: 0;
 }
 
 .title {
@@ -90,12 +88,8 @@ p {
     transform: translateY(0); /* Start at the original position */
   }
   50% {
-    transform: translateY(-5px);
-    -webkit-transform: translateY(-5px);
-    -moz-transform: translateY(-5px);
-    -ms-transform: translateY(-5px);
-    -o-transform: translateY(-5px);
-}
+    transform: translateY(-10px); /* Move up by 10px */
+  }
   100% {
     transform: translateY(0); /* Return to the original position */
   }
@@ -185,7 +179,7 @@ p {
   justify-content: center;
   align-items: center;
   height: 50vh;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .bot-content {
@@ -193,7 +187,7 @@ p {
   align-items: flex-start; /* Align logo and text vertically */
   gap: 10px; /* Space between the logo and text */
   line-height: 1.5;
-  font-size: 14px;
+  font-size: 16px;
   white-space: pre-wrap;
   margin-left: 3%;
   margin-top: 2%;
@@ -204,7 +198,7 @@ p {
   line-height: 1.8;
 }
 
-.logo, .welcomeLogo{
+.logo, .welcomeLogo {
   height: 40px;
   width: 40px;
   border: 1px solid rgba(128, 128, 128, 0.724);
@@ -241,8 +235,8 @@ p {
 
 .chat-input {
   width: 100%;
-  max-height: 200px; /* Allow more vertical space */
   min-height: 52px;
+  max-height: 100px;
   padding: 14px 45px 14px 16px;
   font-size: 14px;
   line-height: 1.5;
@@ -253,10 +247,15 @@ p {
   resize: none;
   overflow-y: auto;
   font-family: inter;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
+
 .chat-input:focus {
   outline: none;
-  margin-bottom: 350px !important;
+  /* margin-bottom: 350px !important; */
 }
 
 .send-button {
@@ -485,6 +484,6 @@ p {
   }
 }
 
-.logo-streaming, .welcomeLogo {
+.logo-streaming {
   animation: glow 2s infinite;
 }

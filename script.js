@@ -2,11 +2,8 @@
 const logoImage = document.createElement("img");
 logoImage.setAttribute("src", "./assets/logo.png");
 logoImage.classList.add("logo");
-logoImage.style.display = "none"; // Hidden by default
-// Append to body so it starts loading immediately
+logoImage.style.display = "none"; 
 document.body.appendChild(logoImage);
-
-//   Auto-resize textarea
 const textarea = document.querySelector(".chat-input");
 const chatBody = document.querySelector(".chat-body");
 const chatContainer = document.querySelector(".chat-container");
@@ -25,30 +22,28 @@ var conversationHistory = [];
 var myBotMsg;
 var windowHeight = window.innerHeight;
 var keyboardHeight;
-textarea.addEventListener("input", function () {
-  // const newHeight = Math.min(this.scrollHeight, 1000);
-  // if (textarea.value != "") {
-  //   this.style.marginBottom = newHeight + 250 + "px";
-  // } else {
-  //   this.style.marginBottom = "0";
-  // }
-});
 
-document.querySelector("textarea").addEventListener("focus", () => {
-  // Capture the initial height when the element is focused
+
+textarea.addEventListener("focus", () => {
+  // textarea.style.marginBottom = "200px";
   const initialHeight = window.innerHeight;
+    welcome.scrollIntoView({behavior : "smooth"})
 
   setTimeout(() => {
-    // Capture the new height after the keyboard appears
     const newHeight = window.innerHeight;
-
-    // Calculate the keyboard height
     const keyboardHeight = initialHeight - newHeight;
+    console.log(keyboardHeight)
+    if (keyboardHeight > 0) {
+      document.querySelector(
+        ".chat-input"
+      ).style.marginBottom = `${keyboardHeight} + 50 px`;
+    }
+    kbHeight.innerHTML = initialHeight;
+  }, 500);
 
-    console.log(`Keyboard height: ${keyboardHeight}px`);
-    kbHeight.innerHTML = `${keyboardHeight}px`;
-  }, 500); // Timeout ensures keyboard fully appears before measuring
 });
+
+
 
 document.querySelector("textarea").addEventListener("blur", () => {
   // Reset on blur
