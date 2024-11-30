@@ -30,16 +30,21 @@ p {
   font-weight: 400;
 }
 
-.chat-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+.input-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  background-color: #030c6d !important;
+  padding: 10px;
+  background-color: #0c0c0c;
+  transition: bottom 0.3s ease;
 }
 
+
+
+.chat-input:focus {
+  outline: none;
+}
 .chat-header {
   height: 80px;
   background-color: #0c0c0c;
@@ -180,7 +185,7 @@ p {
   justify-content: center;
   align-items: center;
   height: 50vh;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .bot-content {
@@ -188,7 +193,7 @@ p {
   align-items: flex-start; /* Align logo and text vertically */
   gap: 10px; /* Space between the logo and text */
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 14px;
   white-space: pre-wrap;
   margin-left: 3%;
   margin-top: 2%;
@@ -236,8 +241,8 @@ p {
 
 .chat-input {
   width: 100%;
+  max-height: 200px; /* Allow more vertical space */
   min-height: 52px;
-  max-height: 100px;
   padding: 14px 45px 14px 16px;
   font-size: 14px;
   line-height: 1.5;
@@ -248,12 +253,7 @@ p {
   resize: none;
   overflow-y: auto;
   font-family: inter;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
 }
-
 .chat-input:focus {
   outline: none;
   margin-bottom: 350px !important;

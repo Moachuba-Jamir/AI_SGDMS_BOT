@@ -31,6 +31,51 @@ textarea.addEventListener("input", function () {
   }
 });
 
+
+// Enhanced auto-resize functionality
+function adjustTextarea() {
+  // Reset height to auto to correctly calculate scroll height
+  textarea.style.height = 'auto';
+  
+  // Calculate the new height
+  const newHeight = Math.min(textarea.scrollHeight, 200); // Max height of 200px
+  textarea.style.height = `${newHeight}px`;
+  
+  // Adjust input container position if needed
+  adjustInputContainerPosition();
+}
+
+// Adjust input container position based on keyboard and textarea
+function adjustInputContainerPosition() {
+  // This helps with different mobile keyboard behaviors
+  if (window.innerHeight < document.documentElement.clientHeight) {
+    // Keyboard is likely visible
+    chatContainer.style.bottom = "0";
+  } else {
+    chatContainer.style.bottom = "0";
+  }
+}
+
+// Add event listeners for dynamic resizing
+textarea.addEventListener("input", adjustTextarea);
+
+// Handle focus and blur to adjust for different keyboard behaviors
+textarea.addEventListener("focus", () => {
+  // Slight delay to ensure keyboard is fully visible
+  setTimeout(adjustInputContainerPosition, 100);
+});
+
+textarea.addEventListener("blur", () => {
+  // Reset position when textarea loses focus
+  chatContainer.style.bottom = "0";
+});
+
+// Listen for window resize events
+window.addEventListener('resize', adjustInputContainerPosition);
+
+// Initial setup
+adjustTextarea();
+
 // create the user msg
 function createUserMsg(userPrompt) {
   const userMsgdiv = document.createElement("div");
