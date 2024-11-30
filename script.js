@@ -52,7 +52,7 @@ function adjustInputContainerPosition() {
   const keyboardHeight = originalViewportHeight - currentViewportHeight;
   console.log(currentViewportHeight);
   console.log(originalViewportHeight);
-  kbHeight.innerHTML = keyboardHeight;
+
   // This helps with different mobile keyboard behaviors
   if (window.innerHeight < document.documentElement.clientHeight) {
     // Keyboard is likely visible
@@ -78,8 +78,12 @@ textarea.addEventListener("blur", () => {
 });
 
 // Listen for window resize events
-window.addEventListener("resize", adjustInputContainerPosition);
-
+// window.addEventListener("resize", adjustInputContainerPosition);
+visualViewport.addEventListener("resize", (event) => {
+  const h = event.target.height;
+  console.log(h);
+  kbHeight.innerHTML = h;
+});
 // Initial setup
 adjustTextarea();
 
@@ -326,7 +330,7 @@ langBtn.addEventListener("click", (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-   originalViewportHeight = window.innerHeight;
+  originalViewportHeight = window.innerHeight;
   const logo = document.createElement("img");
   logo.setAttribute("src", "./assets/logo.png");
   logo.classList.add("logo");
