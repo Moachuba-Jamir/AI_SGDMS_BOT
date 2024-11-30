@@ -23,7 +23,7 @@ let count = 0;
 var isStreamComplete = false;
 var conversationHistory = [];
 var myBotMsg;
-var windowHeight;
+var windowHeight = window.innerHeight;
 var keyboardHeight; 
 textarea.addEventListener("input", function () {
   // const newHeight = Math.min(this.scrollHeight, 1000);
@@ -35,34 +35,30 @@ textarea.addEventListener("input", function () {
  
 });
 
-   let initialHeight = window.innerHeight;
+   
+document.querySelector("textarea").addEventListener("focus", () => {
+  // Capture the initial height when the element is focused
+  const initialHeight = window.innerHeight;
 
-   document.querySelector("textarea").addEventListener("focus", () => {
-     // Trigger on focus
-     setTimeout(() => {
-       const keyboardHeight = initialHeight - window.innerHeight;
-       console.log(`Keyboard height: ${keyboardHeight}px`);
-       kbHeight.innerHTML = keyboardHeight;
-      
-     }, 500); // Delay to allow keyboard to fully appear
-   });
+  setTimeout(() => {
+    // Capture the new height after the keyboard appears
+    const newHeight = window.innerHeight;
+
+    // Calculate the keyboard height
+    const keyboardHeight = initialHeight - newHeight;
+
+  
+      console.log(`Keyboard height: ${keyboardHeight}px`);
+    kbHeight.innerHTML = `${keyboardHeight}px`;
+    
+  }, 500); // Timeout ensures keyboard fully appears before measuring
+});
 
    document.querySelector("textarea").addEventListener("blur", () => {
      // Reset on blur
      console.log("Keyboard closed or textarea blurred");
    });
 
-   let initialViewportHeight = window.innerHeight;
-
-   window.addEventListener("resize", () => {
-     const currentViewportHeight = window.innerHeight;
-
-     if (currentViewportHeight < initialViewportHeight) {
-       console.log("Virtual keyboard is visible");
-     } else {
-       console.log("Virtual keyboard is hidden");
-     }
-   });
 
 // create the user msg
 function createUserMsg(userPrompt) {
