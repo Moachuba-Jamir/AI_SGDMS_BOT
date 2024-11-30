@@ -15,6 +15,8 @@ const welcomeDiv = document.querySelector(".welcome p");
 const welcome = document.querySelector(".welcome");
 const langBtn = document.querySelector(".btn");
 const languageDiv = document.querySelector(".language");
+const kbHeight = document.querySelector(".kb-Height");
+var originalViewportHeight;
 let currentChunk = "";
 let chunkIndex = 0;
 let count = 0;
@@ -31,22 +33,26 @@ textarea.addEventListener("input", function () {
   }
 });
 
-
 // Enhanced auto-resize functionality
 function adjustTextarea() {
   // Reset height to auto to correctly calculate scroll height
-  textarea.style.height = 'auto';
-  
+  textarea.style.height = "auto";
+
   // Calculate the new height
   const newHeight = Math.min(textarea.scrollHeight, 200); // Max height of 200px
   textarea.style.height = `${newHeight}px`;
-  
+
   // Adjust input container position if needed
   adjustInputContainerPosition();
 }
 
 // Adjust input container position based on keyboard and textarea
 function adjustInputContainerPosition() {
+  const currentViewportHeight = window.innerHeight;
+  const keyboardHeight = originalViewportHeight - currentViewportHeight;
+  console.log(currentViewportHeight);
+  console.log(originalViewportHeight);
+  kbHeight.innerHTML = keyboardHeight;
   // This helps with different mobile keyboard behaviors
   if (window.innerHeight < document.documentElement.clientHeight) {
     // Keyboard is likely visible
@@ -54,6 +60,7 @@ function adjustInputContainerPosition() {
   } else {
     chatContainer.style.bottom = "0";
   }
+  console.log("window changed ");
 }
 
 // Add event listeners for dynamic resizing
@@ -71,7 +78,7 @@ textarea.addEventListener("blur", () => {
 });
 
 // Listen for window resize events
-window.addEventListener('resize', adjustInputContainerPosition);
+window.addEventListener("resize", adjustInputContainerPosition);
 
 // Initial setup
 adjustTextarea();
@@ -186,7 +193,7 @@ textarea.addEventListener("keydown", function (e) {
       Math.max(conversationHistory.length - 8, 0)
     );
     conversationHistory.push({ role: "user", content: userInput });
-   
+
     // var userInput = "tell me something about SGDMS ";
     if (userInput) {
       welcome.style.display = "none";
@@ -319,6 +326,7 @@ langBtn.addEventListener("click", (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+   originalViewportHeight = window.innerHeight;
   const logo = document.createElement("img");
   logo.setAttribute("src", "./assets/logo.png");
   logo.classList.add("logo");
