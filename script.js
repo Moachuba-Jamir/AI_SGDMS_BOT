@@ -42,7 +42,7 @@ textarea.addEventListener('focus', () => {
 })
 
 
-window.visualViewport.addEventListener("resize", (e) => {
+visualViewport.addEventListener("resize", (e) => {
   var newViewPortheight = e.currentTarget.height;
   console.log(`${windowHeight - newViewPortheight} new height`);
   keyboardHeight = windowHeight - newViewPortheight; 
