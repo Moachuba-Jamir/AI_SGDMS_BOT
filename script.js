@@ -24,7 +24,7 @@ var isStreamComplete = false;
 var conversationHistory = [];
 var myBotMsg;
 var windowHeight = window.innerHeight;
-var keyboardHeight; 
+var keyboardHeight;
 textarea.addEventListener("input", function () {
   // const newHeight = Math.min(this.scrollHeight, 1000);
   // if (textarea.value != "") {
@@ -32,10 +32,8 @@ textarea.addEventListener("input", function () {
   // } else {
   //   this.style.marginBottom = "0";
   // }
- 
 });
 
-   
 document.querySelector("textarea").addEventListener("focus", () => {
   // Capture the initial height when the element is focused
   const initialHeight = window.innerHeight;
@@ -47,18 +45,15 @@ document.querySelector("textarea").addEventListener("focus", () => {
     // Calculate the keyboard height
     const keyboardHeight = initialHeight - newHeight;
 
-  
-      console.log(`Keyboard height: ${keyboardHeight}px`);
+    console.log(`Keyboard height: ${keyboardHeight}px`);
     kbHeight.innerHTML = `${keyboardHeight}px`;
-    
   }, 500); // Timeout ensures keyboard fully appears before measuring
 });
 
-   document.querySelector("textarea").addEventListener("blur", () => {
-     // Reset on blur
-     console.log("Keyboard closed or textarea blurred");
-   });
-
+document.querySelector("textarea").addEventListener("blur", () => {
+  // Reset on blur
+  console.log("Keyboard closed or textarea blurred");
+});
 
 // create the user msg
 function createUserMsg(userPrompt) {
@@ -158,8 +153,6 @@ function createWelcomeMessage() {
 
 // Prevent default form submission on Enter (optional)
 textarea.addEventListener("keydown", function (e) {
-
- 
   var bufferedWord;
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
