@@ -23,26 +23,32 @@ let count = 0;
 var isStreamComplete = false;
 var conversationHistory = [];
 var myBotMsg;
-
+var windowHeight;
+var keyboardHeight; 
 textarea.addEventListener("input", function () {
-  const newHeight = Math.min(this.scrollHeight, 1000);
-  if (textarea.value != "") {
-    this.style.marginBottom = newHeight + 250 + "px";
-  } else {
-    this.style.marginBottom = "0";
-  }
+  // const newHeight = Math.min(this.scrollHeight, 1000);
+  // if (textarea.value != "") {
+  //   this.style.marginBottom = newHeight + 250 + "px";
+  // } else {
+  //   this.style.marginBottom = "0";
+  // }
+ 
 });
 
-// Add event listeners for dynamic resizing
-if ("virtualKeyboard" in navigator) {
-  navigator.virtualKeyboard.overlaysContent = true;
 
-    navigator.virtualKeyboard.addEventListener("geometrychange", (event) => {
-      const { x, y, width, height } = event.target.boundingRect;
-      console.log(`${x} : ${width}   ${y} : ${height}`)
-      kbHeight.innerHTML = height;
-  });
-}
+textarea.addEventListener('focus', () => {
+   windowHeight = window.innerHeight;
+   console.log(windowHeight);
+})
+
+
+window.visualViewport.addEventListener("resize", (e) => {
+  var newViewPortheight = e.currentTarget.height;
+  console.log(`${windowHeight - newViewPortheight} new height`);
+  keyboardHeight = windowHeight - newViewPortheight; 
+  kbHeight.innerHTML = `${keyboardHeight}px`
+});
+
 // create the user msg
 function createUserMsg(userPrompt) {
   const userMsgdiv = document.createElement("div");
@@ -141,6 +147,8 @@ function createWelcomeMessage() {
 
 // Prevent default form submission on Enter (optional)
 textarea.addEventListener("keydown", function (e) {
+
+ 
   var bufferedWord;
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
