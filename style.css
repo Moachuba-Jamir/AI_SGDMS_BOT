@@ -42,7 +42,7 @@ p {
 
 .chat-header {
   height: 80px;
-  background-color: #040404;
+  background-color: #101010;
   /* border-bottom: 1px solid #565869; */
   display: flex;
   align-items: center;
@@ -76,8 +76,9 @@ p {
   -o-border-radius: 30px;
   margin-top: 2%;
   border: none;
-  box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px, rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
-  font-weight: 500;   
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px,
+    rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
+  font-weight: 500;
 }
 
 @keyframes float {
@@ -91,7 +92,6 @@ p {
     transform: translateY(0); /* Return to the original position */
   }
 }
-
 
 .burger {
   display: flex;
@@ -131,7 +131,7 @@ p {
   height: calc(
     100vh - 150px
   ); /* Subtracting header and input container heights */
-  background-color: #040404 !important;
+  background-color: #101010 !important;
 }
 
 .message {
@@ -169,6 +169,7 @@ p {
   white-space: pre-wrap;
   word-wrap: break-word; /* Ensure long words break */
   word-break: break-word; /* Ensure long words break */
+  color: rgb(237, 237, 233);
 }
 .welcome {
   font-family: inter;
@@ -178,16 +179,16 @@ p {
   height: 50vh;
   font-size: 1.2rem;
 }
-.welcome p{
-  font-family: inter ;
+.welcome p {
+  font-family: inter;
   font-weight: 400;
 }
 .bot-content {
   display: flex;
   align-items: flex-start; /* Align logo and text vertically */
   gap: 10px; /* Space between the logo and text */
-  line-height: 1.5;
-  font-size: 16px;
+  line-height: 1.4;
+  font-size: 15px;
   white-space: pre-wrap;
   margin-left: 3%;
   margin-top: 2%;
@@ -195,18 +196,25 @@ p {
 
 .bot-content p {
   margin-right: 5%;
-  line-height: 1.8;
+  line-height: 1.7;
+  color: rgb(237, 237, 233);
 }
 
-.logo, .welcomeLogo {
-  height: 40px;
-  width: 40px;
+.logo,
+.welcomeLogo {
+  height: 35px;
+  width: 35px;
   border: 1px solid rgba(128, 128, 128, 0.724);
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+}
+
+.welcomeLogo {
+  height: 30px;
+  width: 30px;
 }
 
 .botResponse {
@@ -241,7 +249,7 @@ p {
   font-size: 14px;
   line-height: 1.5;
   color: #fff;
-  background-color: #100f0fe9;
+  background-color: #171616e9;
   border: none;
   border-radius: 20px;
   resize: none;
@@ -251,8 +259,6 @@ p {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px, rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
-
 }
 
 .chat-input:focus {
@@ -284,7 +290,6 @@ p {
   gap: 5px; /* Space between spans */
   margin-left: 3%;
 }
-
 
 /* Each span will blink at a different rate */
 .analyzing span:nth-child(1) {
@@ -466,7 +471,6 @@ p {
   transform-origin: center center;
 }
 
-
 @keyframes glow {
   0% {
     box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
@@ -479,6 +483,7 @@ p {
   }
 }
 
-.logo-streaming, .welcomeLogo {
+.logo-streaming,
+.welcomeLogo {
   animation: glow 2s infinite;
 }
