@@ -42,7 +42,7 @@ p {
 
 .chat-header {
   height: 80px;
-  background-color: #0c0c0c;
+  background-color: #040404;
   /* border-bottom: 1px solid #565869; */
   display: flex;
   align-items: center;
@@ -75,12 +75,9 @@ p {
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
   margin-top: 2%;
-  animation: popAnimation 0.8s ease-in-out;
-  -webkit-animation: float 10s ease-in-out infinite;
   border: none;
   box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px, rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
-  font-weight: 500;
-  animation: float 10s ease-in-out infinite;
+  font-weight: 500;   
 }
 
 @keyframes float {
@@ -134,7 +131,7 @@ p {
   height: calc(
     100vh - 150px
   ); /* Subtracting header and input container heights */
-  background-color: #0c0c0c !important;
+  background-color: #040404 !important;
 }
 
 .message {
@@ -181,7 +178,10 @@ p {
   height: 50vh;
   font-size: 1.2rem;
 }
-
+.welcome p{
+  font-family: inter ;
+  font-weight: 400;
+}
 .bot-content {
   display: flex;
   align-items: flex-start; /* Align logo and text vertically */
@@ -222,7 +222,7 @@ p {
 
 .input-container {
   position: fixed;
-  bottom: 0;
+  bottom: 2%;
   width: 100%;
   max-width: 800px;
 }
@@ -241,7 +241,7 @@ p {
   font-size: 14px;
   line-height: 1.5;
   color: #fff;
-  background-color: #181717e7;
+  background-color: #100f0fe9;
   border: none;
   border-radius: 20px;
   resize: none;
@@ -251,6 +251,8 @@ p {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px, rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
+
 }
 
 .chat-input:focus {
@@ -283,13 +285,6 @@ p {
   margin-left: 3%;
 }
 
-.analyzing span {
-  width: 10px;
-  height: 10px;
-  background-color: #02665e;
-  border-radius: 50%;
-  animation: blink 1.5s infinite;
-}
 
 /* Each span will blink at a different rate */
 .analyzing span:nth-child(1) {
@@ -484,6 +479,6 @@ p {
   }
 }
 
-.logo-streaming {
+.logo-streaming, .welcomeLogo {
   animation: glow 2s infinite;
 }
