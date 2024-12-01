@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.netlify.sgdmsaibot.twa",
+        "sha256_cert_fingerprints": ["4B:73:84:93:90:01:B3:AF:25:4D:28:0B:D1:5B:D7:5E:D4:D1:69:C8:39:7A:53:78:D0:A4:31:60:68:14:6D:DB"]
+      }
+    }]
