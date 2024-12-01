@@ -4,8 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+  background-color: #101010;
 }
 
 body,
@@ -177,7 +176,7 @@ p {
   justify-content: center;
   align-items: center;
   height: 50vh;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .welcome p {
   font-family: inter;
@@ -249,7 +248,7 @@ p {
   font-size: 14px;
   line-height: 1.5;
   color: #fff;
-  background-color: #171616e9;
+  background-color: #222020f9;
   border: none;
   border-radius: 20px;
   resize: none;
