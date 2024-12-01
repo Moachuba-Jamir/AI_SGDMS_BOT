@@ -4,7 +4,7 @@
   "theme_color": "#000000",
   "background_color": "#000000",
   "display": "fullscreen",
-  "start_url": "/",
+  "start_url": "https://sgdmsaibot.netlify.app/",
   "icons": [
     {
       "src": "/assets/logo.png",
@@ -16,5 +16,13 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "orientation": "portrait",
+  "display_override": [
+    "fullscreen",
+    "browser",
+    "minimal-ui",
+    "standalone",
+    "window-controls-overlay"
   ]
 }
