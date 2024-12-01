@@ -5,6 +5,7 @@ logoImage.classList.add("logo");
 logoImage.style.display = "none"; 
 document.body.appendChild(logoImage);
 const textarea = document.querySelector(".chat-input");
+const inputBox = document.querySelector(".input-box");
 const chatBody = document.querySelector(".chat-body");
 const chatContainer = document.querySelector(".chat-container");
 const body = document.getElementsByTagName("body");
@@ -20,26 +21,33 @@ let count = 0;
 var isStreamComplete = false;
 var conversationHistory = [];
 var myBotMsg;
-var windowHeight = window.innerHeight;
-var keyboardHeight;
+var keyboardHeight = 0;
+
+
+if ("virtualKeyboard" in navigator) {
+  // Enable keyboard overlay behavior
+  navigator.virtualKeyboard.overlaysContent = true;
+
+  // Listen for geometry changes
+  navigator.virtualKeyboard.addEventListener("geometrychange", (event) => {
+    const { x, y, width, height } = event.target.boundingRect;
+
+    if (height > 0) {
+      console.log("Virtual keyboard visible");
+      // alert(`Keyboard size: ${width}x${height}`);
+      keyboardHeight = height;
+    } else {
+      console.log("Virtual keyboard hidden");
+    }
+
+    // Adjust UI or layout dynamically
+    textarea.style.marginBottom = `${height}px`
+  });
+}
+
 
 
 textarea.addEventListener("focus", () => {
-  // textarea.style.marginBottom = "200px";
-  const initialHeight = window.innerHeight;
-    welcome.scrollIntoView({behavior : "smooth"})
-
-  setTimeout(() => {
-    const newHeight = window.innerHeight;
-    const keyboardHeight = initialHeight - newHeight;
-    console.log(keyboardHeight)
-    if (keyboardHeight > 0) {
-      document.querySelector(
-        ".chat-input"
-      ).style.marginBottom = `${keyboardHeight} + 50 px`;
-    }
-    kbHeight.innerHTML = initialHeight;
-  }, 500);
 
 });
 
