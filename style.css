@@ -78,6 +78,7 @@ p {
   box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px,
     rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
   font-weight: 500;
+  background: #e8e8e8;
 }
 
 @keyframes float {
@@ -201,9 +202,9 @@ p {
 
 .logo,
 .welcomeLogo {
-  height: 35px;
-  width: 35px;
-  border: 1px solid rgba(128, 128, 128, 0.724);
+  height: 30px;
+  width: 30px;
+  border: 1px solid rgba(128, 128, 128, 0.944);
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -229,7 +230,7 @@ p {
 
 .input-container {
   position: fixed;
-  bottom: 2%;
+  bottom: 1%;
   width: 100%;
   max-width: 800px;
 }

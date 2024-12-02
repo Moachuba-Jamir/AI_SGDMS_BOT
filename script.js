@@ -23,7 +23,7 @@ var conversationHistory = [];
 var myBotMsg;
 var keyboardHeight = 0;
 
-
+// detect keyboard
 if ("virtualKeyboard" in navigator) {
   // Enable keyboard overlay behavior
   navigator.virtualKeyboard.overlaysContent = true;
@@ -45,13 +45,9 @@ if ("virtualKeyboard" in navigator) {
   });
 }
 
-
-
 textarea.addEventListener("focus", () => {
 
 });
-
-
 
 document.querySelector("textarea").addEventListener("blur", () => {
   // Reset on blur
