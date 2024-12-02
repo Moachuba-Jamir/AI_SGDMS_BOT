@@ -6,6 +6,7 @@ logoImage.style.display = "none";
 document.body.appendChild(logoImage);
 const textarea = document.querySelector(".chat-input");
 const inputBox = document.querySelector(".input-box");
+const inputContainer = document.querySelector(".input-container");
 const chatBody = document.querySelector(".chat-body");
 const chatContainer = document.querySelector(".chat-container");
 const body = document.getElementsByTagName("body");
@@ -21,7 +22,6 @@ let count = 0;
 var isStreamComplete = false;
 var conversationHistory = [];
 var myBotMsg;
-var keyboardHeight = 0;
 
 // detect keyboard
 if ("virtualKeyboard" in navigator) {
@@ -34,8 +34,6 @@ if ("virtualKeyboard" in navigator) {
 
     if (height > 0) {
       console.log("Virtual keyboard visible");
-      // alert(`Keyboard size: ${width}x${height}`);
-      keyboardHeight = height;
     } else {
       console.log("Virtual keyboard hidden");
     }
@@ -53,6 +51,8 @@ document.querySelector("textarea").addEventListener("blur", () => {
   // Reset on blur
   console.log("Keyboard closed or textarea blurred");
 });
+
+let scrollTimeout;
 
 // create the user msg
 function createUserMsg(userPrompt) {
